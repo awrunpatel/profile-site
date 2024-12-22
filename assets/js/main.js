@@ -1,18 +1,3 @@
-/*!
-=========================================================
-* JohnDoe Landing page
-=========================================================
-
-* Copyright: 2019 DevCRUD (https://devcrud.com)
-* Licensed: (https://devcrud.com/licenses)
-* Coded by www.devcrud.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-// smooth scroll
 $(document).ready(function () {
   $(".navbar .nav-link").on('click', function (event) {
 
@@ -66,6 +51,18 @@ $(window).on("load", function () {
       }
     });
 
-    return false; // Prevent default action
+    return false;
   });
+  const roles = ["Designer", "Developer", "Django Developer", "Backend Engineer"];
+  const $headerMono = $(".header-mono");
+  let index = 0;
+
+  function updateRole() {
+    $headerMono.text(roles[index]);
+    index = (index + 1) % roles.length;
+  }
+
+  setInterval(updateRole, 3000);
+
+  updateRole();
 });
